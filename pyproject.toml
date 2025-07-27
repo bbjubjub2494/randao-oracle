@@ -1,7 +1,7 @@
 [project]
 name = "randao-oracle"
 version = "0.1.0"
-description = "Add your description here"
+description = "Trustless randomness oracle for Ethereum"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -11,3 +11,6 @@ dependencies = [
 
 [tool.moccasin.project]
 src = "contracts"
+dependencies = [
+    "pcaversaccio/snekmate@0.1.2"
+]
