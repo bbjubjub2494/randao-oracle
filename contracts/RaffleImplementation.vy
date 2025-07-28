@@ -1,15 +1,24 @@
 #pragma version ~=0.4.3
 
 from contracts import RlpUtils
+from contracts import IRaffle
 
 from pcaversaccio.snekmate.src.snekmate.utils import block_hash as bh
 
-players: public(DynArray[address,100])
+implements: IRaffle
+
 resolution_block: public(uint256)
+players: public(DynArray[address,100])
 
 @deploy
+def __init__():
+    # ensure the master copy is not used
+    self.resolution_block = max_value(uint256)
+
+@external
 @payable
-def __init__(players: DynArray[address,100]):
+def setup(players: DynArray[address,100]):
+    assert self.resolution_block == 0, "Raffle already setup"
     self.players = players
     self.resolution_block = block.number + 5
 

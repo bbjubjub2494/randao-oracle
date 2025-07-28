@@ -1,0 +1,8 @@
+#pragma version ~=0.4.3
+
+@external
+@payable
+def setup(players: DynArray[address,100]): ...
+
+@external
+def resolve(block_header: Bytes[1000]): ...

@@ -1,12 +1,10 @@
-from src import Counter
+from contracts import RaffleFactory, RaffleImplementation
 from moccasin.boa_tools import VyperContract
 
 def deploy() -> VyperContract:
-    counter: VyperContract = Counter.deploy()
-    print("Starting count: ", counter.number())
-    counter.increment()
-    print("Ending count: ", counter.number())
-    return counter
+    implementation: VyperContract = RaffleImplementation.deploy()
+    factory: VyperContract = RaffleFactory.deploy(implementation.address)
+    return factory
 
 def moccasin_main() -> VyperContract:
     return deploy()
