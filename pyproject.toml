@@ -21,3 +21,8 @@ deployer_script = "script/deploy.py"
 [tool.moccasin.networks.chiado]
 url = "https://rpc.chiadochain.net"
 prompt_live = false
+
+[tool.moccasin.networks.anvil]
+url = "http://localhost:8545"
+prompt_live = false
+save_to_db = false
