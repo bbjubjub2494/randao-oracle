@@ -11,4 +11,7 @@ def rlp_utils_harness_contract():
 @pytest.fixture
 def raffle_factory_contract():
     active_network = get_config().get_active_network()
-    return active_network.manifest_named_contract('RaffleFactory')
+    contract = active_network.get_latest_contract_checked('RaffleFactory')
+    if contract is None:
+        contract = deploy()
+    return contract
