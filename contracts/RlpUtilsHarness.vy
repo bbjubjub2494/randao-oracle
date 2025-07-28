@@ -1,4 +1,6 @@
-import RlpUtils
+#pragma version ~=0.4.3
+
+from contracts import RlpUtils
 
 @external
 @pure

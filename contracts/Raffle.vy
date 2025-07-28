@@ -1,4 +1,6 @@
-import RlpUtils
+#pragma version ~=0.4.3
+
+from contracts import RlpUtils
 
 from pcaversaccio.snekmate.src.snekmate.utils import block_hash as bh
 

@@ -1,3 +1,5 @@
+#pragma version ~=0.4.3
+
 @pure
 def rlp_expect_list(input: Bytes[1000]) -> (uint256, uint256):
     """
