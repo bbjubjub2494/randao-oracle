@@ -1,4 +1,5 @@
-#pragma version ~=0.4.3
+# pragma version ~=0.4.3
+
 
 @pure
 def rlp_expect_list(input: Bytes[1000]) -> (uint256, uint256):
@@ -12,7 +13,10 @@ def rlp_expect_list(input: Bytes[1000]) -> (uint256, uint256):
     elif prefix_byte < 248:
         return prefix_byte - 192, 1
     else:
-        return self.decode_int(slice(slice(input, 1, 8), 0, prefix_byte - 247)), prefix_byte - 247 + 1
+        return self.decode_int(
+            slice(slice(input, 1, 8), 0, prefix_byte - 247)
+        ), prefix_byte - 247 + 1
+
 
 @pure
 def rlp_skip_string(input: Bytes[1000]) -> uint256:
@@ -25,9 +29,15 @@ def rlp_skip_string(input: Bytes[1000]) -> uint256:
     elif prefix_byte < 184:
         return prefix_byte - 128 + 1
     elif prefix_byte < 192:
-        return self.decode_int(slice(slice(input, 1, 8), 0, prefix_byte - 183)) + prefix_byte - 183 + 1
+        return (
+            self.decode_int(slice(slice(input, 1, 8), 0, prefix_byte - 183))
+            + prefix_byte
+            - 183
+            + 1
+        )
     else:
         raise "expected a string"
+
 
 @pure
 def decode_int(input: Bytes[8]) -> uint256:
@@ -38,7 +48,8 @@ def decode_int(input: Bytes[8]) -> uint256:
     return result
 
 
-MIXHASH_INDEX: constant(uint256) = 13 # index of mixHash in the block header
+MIXHASH_INDEX: constant(uint256) = 13  # index of mixHash in the block header
+
 
 @pure
 def extract_prevrandao(header: Bytes[1000]) -> bytes32:
@@ -53,5 +64,7 @@ def extract_prevrandao(header: Bytes[1000]) -> bytes32:
     for i: uint256 in range(MIXHASH_INDEX):
         offset = self.rlp_skip_string(header)
         header = slice(header, offset, len(header) - offset)
-    assert slice(header, 0, 1) == b'\xa0', "Expected prevRandao to be a 32-byte string"
+    assert (
+        slice(header, 0, 1) == b"\xa0"
+    ), "Expected prevRandao to be a 32-byte string"
     return convert(slice(header, 1, 32), bytes32)
