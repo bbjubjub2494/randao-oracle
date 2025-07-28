@@ -15,5 +15,5 @@ def skip_string(input: Bytes[1000], offset: uint256 = 0) -> uint256:
 
 @external
 @pure
-def extract_prevrandao(header: Bytes[1000]) -> Bytes[32]:
+def extract_prevrandao(header: Bytes[1000]) -> bytes32:
     return RlpUtils.extract_prevrandao(header)

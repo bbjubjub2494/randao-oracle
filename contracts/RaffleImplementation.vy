@@ -31,7 +31,7 @@ def resolve(block_header: Bytes[1000], players: DynArray[address,100]):
     # as a bonus, this refunds some gas
     self.players_hash = empty(bytes32)
 
-    randao: Bytes[32] = RlpUtils.extract_prevrandao(block_header)
+    randao: bytes32 = RlpUtils.extract_prevrandao(block_header)
     seed: bytes32 = keccak256(abi_encode(self, randao))
     winner_index: uint256 = convert(seed, uint256) % len(players)
     winner: address = players[winner_index]

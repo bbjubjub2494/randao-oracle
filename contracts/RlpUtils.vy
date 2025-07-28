@@ -41,7 +41,7 @@ def decode_int(input: Bytes[8]) -> uint256:
 MIXHASH_INDEX: constant(uint256) = 13 # index of mixHash in the block header
 
 @pure
-def extract_prevrandao(header: Bytes[1000]) -> Bytes[32]:
+def extract_prevrandao(header: Bytes[1000]) -> bytes32:
     """
     Extract the prevRandao value from the block header.
     """
@@ -54,4 +54,4 @@ def extract_prevrandao(header: Bytes[1000]) -> Bytes[32]:
         offset = self.rlp_skip_string(header)
         header = slice(header, offset, len(header) - offset)
     assert slice(header, 0, 1) == b'\xa0', "Expected prevRandao to be a 32-byte string"
-    return slice(header, 1, 32)
+    return convert(slice(header, 1, 32), bytes32)
