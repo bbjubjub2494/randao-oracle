@@ -14,3 +14,10 @@ src = "contracts"
 dependencies = [
     "pcaversaccio/snekmate@0.1.2"
 ]
+
+[tool.moccasin.networks.contracts.RaffleFactory]
+deployer_script = "script/deploy.py"
+
+[tool.moccasin.networks.chiado]
+url = "https://rpc.chiadochain.net"
+prompt_live = false
