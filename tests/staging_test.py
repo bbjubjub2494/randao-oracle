@@ -25,4 +25,4 @@ def test_live_lottery(raffle_factory_contract):
 
     print(resolution_block)
     header = get_block_header(w3, resolution_block)
-    raffle_contract.resolve(rlp.encode(header))
+    raffle_contract.resolve(rlp.encode(header), players)
