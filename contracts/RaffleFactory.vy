@@ -11,9 +11,6 @@ def __init__(raffle_implementation: address):
 @external
 @payable
 def create(players: DynArray[address,100]) -> IRaffle:
-    """
-    Create a new Raffle contract with the specified players.
-    """
     assert msg.value > 0, "No prize to raffle"
 
     raffle: IRaffle = IRaffle(create_minimal_proxy_to(RAFFLE_IMPLEMENTATION))
