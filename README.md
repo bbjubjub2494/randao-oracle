@@ -21,7 +21,7 @@ The protocol happens in two steps:
 The factory is deployed using [Deterministic Deployment Proxy] on Ethereum Mainnet, Gnosis Chain, and their testnets, at the following address:
 
 ```
-TBD
+0x8aff1ed01bd31da532c091F0966e75E1c13A2c9C
 ```
 
 Just call the `create` method to deploy a new raffle contract. The factory will return the address.

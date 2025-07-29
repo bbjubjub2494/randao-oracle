@@ -1,6 +1,9 @@
 # pragma version ~=0.4.3
+# SPDX-License-Identifier: AGPL-3.0-only
 
-from contracts import IRaffle
+interface IRaffle:
+    def setup(players: DynArray[address, 100]): payable
+    def resolve(block_header: Bytes[1000], players: DynArray[address, 100]): nonpayable
 
 RAFFLE_IMPLEMENTATION: public(immutable(address))
 

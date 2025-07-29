@@ -1,9 +1,13 @@
 # pragma version ~=0.4.3
+# SPDX-License-Identifier: AGPL-3.0-only
 
-from contracts import RlpUtils
-from contracts import IRaffle
+import block_hash as bh  # from snekmate
 
-from pcaversaccio.snekmate.src.snekmate.utils import block_hash as bh
+import RlpUtils
+
+interface IRaffle:
+    def setup(players: DynArray[address, 100]): payable
+    def resolve(block_header: Bytes[1000], players: DynArray[address, 100]): nonpayable
 
 implements: IRaffle
 

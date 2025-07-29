@@ -24,6 +24,5 @@ def test_live_lottery(raffle_factory_contract):
     while resolution_block >= w3.eth.block_number:
         time.sleep(1)
 
-    print(resolution_block)
     header = get_block_header(w3, resolution_block)
     raffle_contract.resolve(rlp.encode(header), players)

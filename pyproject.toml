@@ -11,9 +11,7 @@ dependencies = [
 
 [tool.moccasin.project]
 src = "contracts"
-dependencies = [
-    "pcaversaccio/snekmate@0.1.2"
-]
+dependencies = []
 
 [tool.moccasin.networks.contracts.RaffleFactory]
 deployer_script = "script/deploy.py"
