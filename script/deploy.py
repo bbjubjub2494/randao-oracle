@@ -38,3 +38,6 @@ def deploy():
     raffle_implementation = proxy_deploy(compile_vy("RaffleImplementation.vy"))
     raffle_factory = proxy_deploy(compile_vy("RaffleFactory.vy"), "address", raffle_implementation, deployment_salt=factory_salt)
     return RaffleFactory.at(raffle_factory)
+
+def moccasin_main():
+    return deploy()
