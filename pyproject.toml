@@ -1,7 +1,7 @@
 [project]
-name = "randao-oracle"
+name = "randao-raffle"
 version = "0.1.0"
-description = "Trustless randomness oracle for Ethereum"
+description = "Trustless raffle on Ethereum"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
