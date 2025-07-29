@@ -1,8 +1,6 @@
 # Trustless Randomness Oracle on Ethereum
 
-Work in progress.
-
-This library allows obtaining random numbers on Ethereum itself, without no additional trust assumptions.
+This is a simple demo that allows running a raffle on Ethereum itself, without additional trust assumptions.
 It uses the RANDAO output from the Ethereum consensus layer.
 
 ## Protocol
