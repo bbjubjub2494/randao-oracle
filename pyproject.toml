@@ -20,6 +20,13 @@ deployer_script = "script/deploy.py"
 url = "https://rpc.chiadochain.net"
 prompt_live = false
 
+[tool.moccasin.networks.sepolia]
+url = "https://sepolia.drpc.org"
+prompt_live = false
+
+[tool.moccasin.networks.gnosis]
+url = "https://rpc.gnosischain.com"
+
 [tool.moccasin.networks.anvil]
 url = "http://localhost:8545"
 prompt_live = false
