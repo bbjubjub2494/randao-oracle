@@ -23,8 +23,9 @@ The factory is deployed using [Deterministic Deployment Proxy] on Ethereum Mainn
 ```
 
 Just call the `create` method to deploy a new raffle contract. The factory will return the address.
-call `resolution_block` on the rafle contract to get the block number that will be used to resolve the raffle.
+Call `resolution_block` on the raffle contract to get the block number that will be used to resolve the raffle.
 Then, after the block has been proposed, call `resolve` to provide the block header to transfer the prize to the winner.
+You can use the script `uvx get_block_header.py <rpc_url> <block_number>` to get the block header in the required format.
 
 Note that you need to provide the list of participants in both transactions. Since storage is expensive, the contract only stores the hash of the list.
     
