@@ -8,7 +8,7 @@ from moccasin.config import get_config
 from tests.util import get_block_header
 
 if len(sys.argv) != 3:
-    print("Usage: uvx get_block_header.py <rpc_url> <block_number>")
+    print("Usage: uv run get_block_header.py <rpc_url> <block_number>")
     sys.exit(1)
 
 rpc_url = sys.argv[1]
